@@ -1,32 +1,6 @@
-# Guida Python: Refactoring e Best Practices per Ricercatori
-## Materiale Completo per Sviluppatori Python (3 ore)
-
----
-
-## 📋 Struttura del Corso
-
-- **00:00-01:00** - Classi Python e Refactoring OOP
-- **01:00-01:30** - Testing Avanzato con pytest  
-- **01:30-02:15** - Struttura Progetto e Git Workflow
-- **02:15-03:00** - Gestione Errori e Deployment
-
----
-
 # Guida Python: Refactoring e Best Practices 
-## Materiale Completo per Sviluppatori Python (3 ore)
 
----
-
-## 📋 Struttura del Corso
-
-- **00:00-01:00** - Classi Python e Refactoring OOP
-- **01:00-01:30** - Testing Avanzato con pytest  
-- **01:30-02:15** - Struttura Progetto e Git Workflow
-- **02:15-03:00** - Gestione Errori e CI/CD
-
----
-
-## Parte 1: Classi Python e Object-Oriented Programming (60 minuti)
+## Parte 1: Classi Python e Object-Oriented Programming
 
 ### Il Problema del Codice Procedurale
 
@@ -146,7 +120,7 @@ validator.threshold = -1   # ValueError!
 
 ---
 
-## Parte 2: Testing Avanzato con pytest (30 minuti)
+## Parte 2: Testing Avanzato con pytest
 
 ### Fixtures: La Base di Tutto
 
@@ -260,7 +234,7 @@ pytest -m slow                  # Solo test marcati @pytest.mark.slow
 
 ---
 
-## Parte 3: Struttura Progetto Moderna (45 minuti)
+## Parte 3: Struttura Progetto Moderna
 
 ### Struttura Raccomandata 
 
@@ -393,7 +367,7 @@ git push origin main
 
 ---
 
-## Parte 4: Gestione Errori e CI/CD (45 minuti)
+## Parte 4: Gestione Errori e CI/CD
 
 ### Gestione Errori: I Principi Base
 
@@ -554,7 +528,7 @@ CMD ["python", "-m", "mio_progetto.main"]
 
 ## Checklist Pratica: Da Zero a Produzione
 
-### Setup Veloce (10 minuti)
+### Setup Veloce
 ```bash
 # Struttura base
 mkdir progetto && cd progetto
@@ -839,7 +813,7 @@ CMD ["python", "-m", "mio_progetto.main"]
 
 ## Checklist Pratica: Da Zero a Produzione
 
-### Setup Iniziale (30 minuti)
+### Setup Iniziale
 ```bash
 # 1. Crea struttura progetto
 mkdir mio-progetto && cd mio-progetto
