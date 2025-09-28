@@ -39,7 +39,7 @@ class Calculator:
         60.0
     """
 
-    def __init__(self, precision: int = 2):
+    def __init__(self, precision: int = 2) -> None:
         """Initialize calculator with optional precision.
 
         Args:

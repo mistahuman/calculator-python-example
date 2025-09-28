@@ -94,27 +94,6 @@ make docs
 make all
 ```
 
-## Project Structure
-
-```
-.
-├── Makefile            # Build automation
-├── README.md           # This file
-├── pyproject.toml      # Project configuration
-├── src/
-│   └── calculator/     # Main package
-│       ├── __init__.py
-│       ├── calculator.py       # Functional 
-│       └── calculator_class.py # Class-based 
-├── tests/              # Test suite
-│   ├── test_calculator.py
-│   └── test_calculator_class.py
-└── docs/               # Documentation
-    └── source/
-        ├── conf.py     # Sphinx configuration
-        └── index.rst   # Documentation index
-```
-
 ## License
 
 MIT

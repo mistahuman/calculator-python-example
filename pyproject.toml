@@ -82,7 +82,7 @@ exclude = [
 
 # Configurazione pytest
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "lesson"]
 python_files = ["test_*.py", "*_test.py"]
 addopts = [
     "-v",
