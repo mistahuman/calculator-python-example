@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Sphinx configuration file for My Project documentation.
+"""Sphinx configuration file for Calculator Example documentation.
 
 This file configures Sphinx to generate documentation for the calculator project.
 It sets up autodoc, type hints, and theme settings.
@@ -14,7 +14,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.abspath('../../src'))
 
 # Project information
-project = 'My Project'
+project = 'Calculator Example'
 copyright = f'{datetime.now().year}, Marco Lanconelli'
 author = 'Marco Lanconelli'
 release = '0.1.0'

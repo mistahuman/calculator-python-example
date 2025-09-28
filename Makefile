@@ -1,12 +1,10 @@
 .PHONY: help install install-dev test lint format type-check clean build docs coverage all
 
-# Variabili
 PYTHON := python
 PIP := $(PYTHON) -m pip
 SRC := src/calculator
 TESTS := tests
 
-# Default target
 help:
 	@echo "Available commands:"
 	@echo "  make install      Install production dependencies"
@@ -21,7 +19,6 @@ help:
 	@echo "  make coverage 	   Run and see coverage tests"
 	@echo "  make all          Run format, lint, type-check, and test"
 
-# Installazione
 install:
 	$(PIP) install -e .
 
@@ -29,7 +26,6 @@ install-dev:
 	$(PIP) install -e .[dev,docs]
 	pre-commit install
 
-# Testing
 test:
 	pytest
 
@@ -39,7 +35,6 @@ test-fast:
 test-watch:
 	pytest-watch --clear --nobeep
 
-# Code quality
 lint:
 	ruff check $(SRC) $(TESTS)
 
@@ -67,8 +62,6 @@ clean:
 	find . -type f -name "*.pyc" -delete
 
 
-
-# Development workflow
 dev: format lint-fix test-fast
 
 all: format lint type-check test

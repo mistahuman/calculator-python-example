@@ -1,4 +1,4 @@
-# My Project
+# Calculator Example
 
 A simple calculator library with processing capabilities.
 

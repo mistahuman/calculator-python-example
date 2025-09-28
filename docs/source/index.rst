@@ -1,4 +1,4 @@
-My Project Documentation
+Calculator Example Documentation
 ========================
 
 .. toctree::
@@ -12,7 +12,7 @@ My Project Documentation
 Project Overview
 ----------------
 
-My Project is a simple calculator library with both functional and class-based interfaces.
+Calculator Example is a simple calculator library with both functional and class-based interfaces.
 
 Features
 --------

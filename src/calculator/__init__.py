@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""My Project - A simple calculator with processing capabilities.
+"""Calculator Example - A simple calculator with processing capabilities.
 
 This package provides both functional and class-based interfaces for
 performing basic arithmetic operations with additional features like
