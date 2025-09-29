@@ -13,7 +13,7 @@ License: MIT
 """
 
 import logging
-from typing import List, Optional
+from typing import Optional
 
 
 class Calculator:
@@ -46,7 +46,7 @@ class Calculator:
             precision: Number of decimal places for rounding (default: 2)
         """
         self.precision = precision
-        self.history: List[str] = []
+        self.history: list[str] = []
         self.last_result: Optional[float] = None
         self.logger = logging.getLogger(self.__class__.__name__)
 
@@ -98,7 +98,7 @@ class Calculator:
         self._log_operation(f"{a} * {b} = {result}")
         return result
 
-    def calculate_average(self, numbers: List[float]) -> float:
+    def calculate_average(self, numbers: list[float]) -> float:
         """Calculate average of a list of numbers.
 
         Args:
@@ -130,7 +130,7 @@ class Calculator:
             self.last_result = float(operation.split("=")[-1].strip())
         self.logger.debug(f"Operation: {operation}")
 
-    def get_history(self) -> List[str]:
+    def get_history(self) -> list[str]:
         """Get calculation history.
 
         Returns:
