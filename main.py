@@ -1,7 +1,8 @@
 """Main module using Calculator class."""
 
 import logging
-import calculator
+
+# import calculator
 from src.calculator.calculator_class import Calculator
 
 logging.basicConfig(
@@ -62,7 +63,7 @@ def main_oop_real() -> None:
 
 
 if __name__ == "__main__":
-    logging.info(f"Proj: {calculator.__project__}. Version: {calculator.__version__}. Author: {calculator.__author__}")
+    # logging.info(f"Proj: {calculator.__project__}. Version: {calculator.__version__}. Author: {calculator.__author__}")
     main_functional("add", 3, 2)
     main_functional("div", 10, 0)
 

@@ -1,21 +1,28 @@
 # .pre-commit-config.yaml
 repos:
-  # Usa i tool LOCALI invece di scaricarli
   - repo: local
     hooks:
-      - id: black
-        name: Black formatter
-        entry: black
-        language: system
-        types: [python]
-        require_serial: true
-      
-      - id: ruff
+      - id: ruff-check
         name: Ruff linter
         entry: ruff check --fix
         language: system
         types: [python]
         require_serial: false
+      
+      - id: ruff-format
+        name: Ruff formatter
+        entry: ruff format
+        language: system
+        types: [python]
+        require_serial: true
+      
+      - id: mypy
+        name: MyPy type checker
+        entry: mypy
+        language: system
+        types: [python]
+        require_serial: false
+        files: ^src/
       
       - id: tests
         name: Run tests
@@ -23,4 +30,3 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
-      

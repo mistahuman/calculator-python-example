@@ -15,8 +15,6 @@ Email: m.lanconelli@example.com
 License: MIT
 """
 
-from typing import List
-
 
 def add(a: float, b: float) -> float:
     """Add two numbers.
@@ -80,7 +78,7 @@ def multiply(a: float, b: float) -> float:
     return a * b
 
 
-def calculate_average(numbers: List[float]) -> float:
+def calculate_average(numbers: list[float]) -> float:
     """Calculate average of a list of numbers.
 
     Args:

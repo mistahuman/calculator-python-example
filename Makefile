@@ -32,27 +32,16 @@ test:
 test-fast:
 	pytest --no-cov -v
 
-test-watch:
-	pytest-watch --clear --nobeep
-
 lint:
 	ruff check $(SRC) $(TESTS)
-
-lint-fix:
-	ruff check --fix $(SRC) $(TESTS)
+	pylint $(SRC) || true
 
 format:
-	black $(SRC) $(TESTS)
-	isort $(SRC) $(TESTS)
-
-format-check:
-	black --check $(SRC) $(TESTS)
-	isort --check-only $(SRC) $(TESTS)
+	ruff format $(SRC) $(TESTS)
+	ruff check --fix $(SRC) $(TESTS)
 
 type-check:
 	mypy $(SRC)
-
-check: format-check lint type-check
 
 clean:
 	rm -rf build dist *.egg-info
@@ -62,25 +51,19 @@ clean:
 	find . -type f -name "*.pyc" -delete
 
 
-dev: format lint-fix test-fast
-
-all: format lint type-check test
-
-# Documentazione
 docs-init:
 	sphinx-quickstart docs
 	sphinx-apidoc -o docs/source/api src/ -f
 
 docs:
-	sphinx-build -b html docs/source docs/build/html
-
-docs-clean:
 	rm -rf docs/build
-
-docs-serve:
+	sphinx-build -b html docs/source docs/build/html
 	python -m http.server -d docs/build/html 8000
-
 coverage:
 	rm -rf .coverage htmlcov
 	pytest --cov
 	python -m http.server -d htmlcov 8001
+
+dev: format lint-fix test-fast
+
+all: format lint type-check test

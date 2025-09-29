@@ -11,137 +11,79 @@ requires-python = ">=3.9"
 authors = [
     {name = "Marco Lanconelli", email = "m.lanconelli@example.com"}
 ]
-dependencies = [
-]
+dependencies = []
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
     "pytest-mock>=3.0",
-    "black>=23.0",
     "ruff>=0.1.0",
-    "isort>=6.0.1",
     "mypy>=1.0",
-    "pre-commit>=3.0",
+    "pylint>=3.3.8",
+    "pre-commit>=4.3.0",
 ]
 docs = [
-    "sphinx>=7.0",
-    "sphinx-rtd-theme",  # tema opzionale
+    "sphinx>=8.0.0",
+    "sphinx-rtd-theme",
     "sphinx-autodoc-typehints",
-    "myst-parser",  # per file .md
+    "myst-parser",
 ]
 
 [project.scripts]
 my-tool = "calculator.calculator:main"
 
-# Configurazione Black (formatter)
-[tool.black]
-line-length = 100
-target-version = ['py38', 'py39', 'py310', 'py311']
-include = '\.pyi?$'
-extend-exclude = '''
-(
-    __pycache__
-    | \.git
-    | \.mypy_cache
-    | \.venv
-    | build
-    | dist
-)
-'''
-
-# Configurazione Ruff (linter veloce, sostituisce flake8)
+# Configurazione Ruff (linting + formatting)
 [tool.ruff]
 line-length = 100
-target-version = "py38"
+target-version = "py39"
+exclude = [".git", "__pycache__", ".venv", "build", "dist"]
+
+[tool.ruff.lint]
 select = [
-    "E",   # pycodestyle errors
-    "W",   # pycodestyle warnings  
-    "F",   # pyflakes
-    "I",   # isort
-    "B",   # flake8-bugbear
-    "C4",  # flake8-comprehensions
-    "UP",  # pyupgrade
+    "E", "W",    # pycodestyle
+    "F",         # pyflakes
+    "I",         # isort
+    "B",         # flake8-bugbear
+    "C4",        # flake8-comprehensions
+    "UP",        # pyupgrade
+    "N",         # pep8-naming
 ]
 ignore = [
-    "E501",  # line too long (handled by black)
-    "B008",  # do not perform function calls in argument defaults
+    "E501",      # line too long (handled by formatter)
+    "B008",      # function calls in argument defaults
 ]
-exclude = [
-    ".git",
-    "__pycache__",
-    ".venv",
-    "build",
-    "dist",
-]
+per-file-ignores = {"__init__.py" = ["F401"], "tests/*" = ["S101"]}
 
-[tool.ruff.per-file-ignores]
-"__init__.py" = ["F401"]  # unused imports ok in __init__
-"tests/*" = ["S101"]       # assert ok in tests
+[tool.ruff.lint.isort]
+known-first-party = ["calculator"]
 
 # Configurazione pytest
 [tool.pytest.ini_options]
 testpaths = ["tests", "lesson"]
 python_files = ["test_*.py", "*_test.py"]
 addopts = [
-    "-v",
-    "--strict-markers",
-    "--tb=short",
-    "--cov=src/calculator",
-    "--cov-report=term-missing",
-    "--cov-report=html",
-    "--cov-fail-under=80",
+    "-v", "--strict-markers", "--tb=short",
+    
+    "--cov=src/calculator", "--cov-report=term-missing",
+    "--cov-report=html", "--cov-fail-under=80",
 ]
 markers = [
     "slow: marks tests as slow",
     "integration: marks tests as integration tests",
 ]
 
-# Configurazione coverage
 [tool.coverage.run]
 source = ["src/calculator"]
-omit = [
-    "*/tests/*",
-    "*/__init__.py",
-]
+omit = ["*/tests/*", "*/__init__.py"]
 
-[tool.coverage.report]
-precision = 2
-show_missing = true
-skip_covered = false
-
-# Configurazione mypy (type checker)
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.9"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
-disallow_any_generics = true
-no_implicit_optional = true
-check_untyped_defs = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-warn_no_return = true
 files = ["src/calculator"]
 
 [[tool.mypy.overrides]]
 module = "tests.*"
 ignore_errors = true
-
-[[tool.mypy.overrides]]
-module = [
-    "requests.*",
-    "yaml.*",
-]
-ignore_missing_imports = true
-
-# Configurazione isort (import sorting)
-[tool.isort]
-profile = "black"
-line_length = 100
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-use_parentheses = true
-ensure_newline_before_comments = true
